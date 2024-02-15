@@ -1,4 +1,11 @@
 
+/* Make a program where you define a sentence/message if its using capital
+letter after the first letter of the word.
+
+note: every word in the sentence/message ignores the first letter
+*/
+
+
 package archiel.lab.act.pkg1.pkg2.v2.pkg02.pkg14.pkg2024;
 
 import java.util.Scanner;
