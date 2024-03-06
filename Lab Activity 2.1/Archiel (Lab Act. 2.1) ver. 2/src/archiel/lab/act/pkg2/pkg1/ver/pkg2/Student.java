@@ -1,10 +1,10 @@
 
-package archiel.lab.act.pkg2.pkg1;
+package archiel.lab.act.pkg2.pkg1.ver.pkg2;
 
 
 public class Student {
     
-    private String FirstName, LastName;
+     private String FirstName, LastName;
     private int Age;
     private Boolean isMinor;
     
@@ -49,5 +49,5 @@ public class Student {
         String result = getName() + " - " + Integer.toString(Age) + " - " + minORadu;
         return result;
     }
-   
+    
 }
