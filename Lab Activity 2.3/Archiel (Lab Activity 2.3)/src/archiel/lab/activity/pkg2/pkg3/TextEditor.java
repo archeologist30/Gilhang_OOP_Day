@@ -3,12 +3,12 @@ package archiel.lab.activity.pkg2.pkg3;
 
 public class TextEditor {
     
-    private StringBuilder text;
+    private String text;
     int index = 0;
     String[] history = new String[6];
     
     public TextEditor(String Text) {
-        this.text = new StringBuilder(Text);
+        text = Text;
         
         history[index] = Text;        
         index++;
@@ -18,27 +18,27 @@ public class TextEditor {
     
   
     public String getText() {
-        return this.text.toString();
+        return text;
     }
             
    
     public void setText (String text){
-        this.text = new StringBuilder(text);
+        this.text = text;
     }   
     
     public void append(String newText) {
         
-        history[index] = text.toString();    
+        history[index] = text;    
         index++;
         
-        text.toString();
-        this.text.append(newText);
+        
+           text += newText;
       
     }
     
     public void delete(int n){
        
-        history[index] = text.toString();    
+        history[index] = text;    
         index++;
         
         int l = text.length();
