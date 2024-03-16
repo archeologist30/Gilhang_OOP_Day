@@ -75,20 +75,26 @@ public class Tester {
                 System.out.println("SUCCESS");
             } catch (Exception e) {
                 System.out.println("FAILED");
-            }
+            } 
+
+
+//changed the code here sir :)
         } else if (code == 4) {
             if(editor instanceof PrintTextEditor) {
+                System.out.println("This is an PrintTextEditor instance");
                 Method print = Tester.getMethod(editor, "print");
                 try {
                     print.invoke(editor);
+                    System.out.println("SUCCESS");
                 } catch (Exception e) {
                     System.out.println("FAILED");
                 }
-            } else {
+            } else if (editor instanceof AdvancedTextEditor){
                 System.out.println("This is an AdvancedTextditor instance");
                 Method print = Tester.getMethod(editor, "print");
                 try {
                     print.invoke(editor);
+                    System.out.println("SUCCESS");
                 } catch (Exception e) {
                     System.out.println("FAILED");
                 }
