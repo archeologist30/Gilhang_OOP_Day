@@ -44,7 +44,7 @@ public class TextEditor {
         int l = text.length();
         if ( n <= l){
  
-            text.substring(l - n, l);
+             text = text.substring(0 ,l - n);
 
         }
     }
