@@ -17,10 +17,9 @@ import javax.swing.JTextField;
 
 
 
-public class CalculatorGUI implements ActionListener{
+public class CalculatorGUI extends Calculator implements ActionListener{
     
-    boolean hasOperator = false;
-    int input = 0, input2 = 0;
+    
     JTextField i_o, i_o2, operator;
     JButton n1, n2, n3, n4, n5, n6, n7, n8, n9, n0, equal, clear, plus, minus, multiply, divide;
     
@@ -274,27 +273,41 @@ public class CalculatorGUI implements ActionListener{
      @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(e.getSource() == plus){
-            if (hasOperator == true){
-                
-            } else{
-            hasOperator = true;
+        if(e.getSource() == equal){
             
+            if (hasOperator == true){
+                trigEqual = true;
+                CalculatorOperation();
+                i_o.setText(Integer.toString(result));
+                i_o2.setText(Integer.toString(0));
+                
+            } 
+            
+            
+        }
+        
+        if(e.getSource() == plus){
+            
+            if (hasOperator == false){
+                hasOperator = true;
+            trigPlus = true;
             input2 = input;
             input = 0;
             i_o.setText(Integer.toString(input));
-            System.out.println(input2);
+            
             i_o2.setText(Integer.toString(input2));
-            }
+            
+            } 
+            
         }
         
         if(e.getSource() == clear){
             
             input = 0;
             input2 = 0;
-            System.out.println(input);
-            i_o.setText(Integer.toString(input));
             
+            i_o.setText(Integer.toString(input));
+            i_o2.setText(Integer.toString(input2));
             hasOperator = false;
         }
         
@@ -304,13 +317,13 @@ public class CalculatorGUI implements ActionListener{
         if(e.getSource() == n1){
             if (hasOperator == true){
                 input = input * 10 + 1;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 1;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
@@ -318,13 +331,13 @@ public class CalculatorGUI implements ActionListener{
         if(e.getSource() == n2){
             if (hasOperator == true){
                 input = input * 10 + 2;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 2;
-            System.out.println(input);
+           
             i_o.setText(Integer.toString(input));
             }
         }
@@ -332,13 +345,13 @@ public class CalculatorGUI implements ActionListener{
         if(e.getSource() == n3){
             if (hasOperator == true){
                 input = input * 10 + 3;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 3;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
@@ -346,13 +359,13 @@ public class CalculatorGUI implements ActionListener{
         if(e.getSource() == n4){
            if (hasOperator == true){
                 input = input * 10 + 4;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 4;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
@@ -360,84 +373,87 @@ public class CalculatorGUI implements ActionListener{
         if(e.getSource() == n5){
            if (hasOperator == true){
                 input = input * 10 + 5;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 5;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
         if(e.getSource() == n6){
             if (hasOperator == true){
                 input = input * 10 + 6;
-                System.out.println(input);
+               
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 6;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
         if(e.getSource() == n7){
             if (hasOperator == true){
                input = input * 10 + 7;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 7;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
         if(e.getSource() == n8){
             if (hasOperator == true){
                input = input * 10 + 8;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 8;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
         if(e.getSource() == n9){
            if (hasOperator == true){
                input = input * 10 + 9;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10 + 9;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
         if(e.getSource() == n0){
             if (hasOperator == true){
                input = input * 10;
-                System.out.println(input);
+                
                 i_o.setText(Integer.toString(input));
                 i_o2.setText(Integer.toString(input2));
                 
             } else {
             input = input * 10;
-            System.out.println(input);
+            
             i_o.setText(Integer.toString(input));
             }
         }
         
     }
      
+    
+    
+    
     
     }
     
