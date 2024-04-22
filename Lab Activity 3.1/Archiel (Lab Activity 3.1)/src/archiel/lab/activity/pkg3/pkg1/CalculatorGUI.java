@@ -3,7 +3,7 @@ package archiel.lab.activity.pkg3.pkg1;
 
 import java.awt.Color;
 
-import java.awt.FlowLayout;
+
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -11,8 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+
 import javax.swing.JTextField;
 
 
@@ -56,8 +55,9 @@ public class CalculatorGUI extends Calculator implements ActionListener{
          operator.setFont(new Font("Roboto", Font.BOLD,50));
          operator.setForeground(Color.white);
          operator.setBackground(Color.darkGray);
-         operator.setBounds(180, 90, 290, 70);
+         operator.setBounds(120, 90, 50, 70);
          operator.setEditable(false);
+         
          
          
          //PANELS-----------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ public class CalculatorGUI extends Calculator implements ActionListener{
          plus.setFocusable(false);
          plus.addActionListener(this);
          plus.setBounds(400, 171, 70, 26);
-         plus.setBackground(Color.darkGray);
+         plus.setBackground(Color.orange);
          plus.setText("+");
          plus.setForeground(Color.white);
          plus.setFont(new Font("Roboto", Font.BOLD, 20));
@@ -83,7 +83,7 @@ public class CalculatorGUI extends Calculator implements ActionListener{
          minus.setFocusable(false);
          minus.addActionListener(this);
          minus.setBounds(400, 201, 70, 26);
-         minus.setBackground(Color.darkGray);
+         minus.setBackground(Color.orange);
          minus.setText("-");
          minus.setForeground(Color.white);
          minus.setFont(new Font("Roboto", Font.BOLD, 20));
@@ -92,7 +92,7 @@ public class CalculatorGUI extends Calculator implements ActionListener{
          multiply.setFocusable(false);
          multiply.addActionListener(this);
          multiply.setBounds(400, 231, 70, 21);
-         multiply.setBackground(Color.darkGray);
+         multiply.setBackground(Color.orange);
          multiply.setText("x");
          multiply.setForeground(Color.white);
          multiply.setFont(new Font("Roboto", Font.BOLD, 20));
@@ -101,7 +101,7 @@ public class CalculatorGUI extends Calculator implements ActionListener{
          divide.setFocusable(false);
          divide.addActionListener(this);
          divide.setBounds(400, 256, 70, 21);
-         divide.setBackground(Color.darkGray);
+         divide.setBackground(Color.orange);
          divide.setText("/");
          divide.setForeground(Color.white);
          divide.setFont(new Font("Roboto", Font.BOLD, 20));
@@ -262,6 +262,7 @@ public class CalculatorGUI extends Calculator implements ActionListener{
          f.add(minus);
          f.add(multiply);
          f.add(divide);
+         f.add(operator);
   
           
          
@@ -276,13 +277,68 @@ public class CalculatorGUI extends Calculator implements ActionListener{
         if(e.getSource() == equal){
             
             if (hasOperator == true){
-                trigEqual = true;
+                
+                if(trigDivide == true){
+                CalculatorOperation();
+                i_o.setText(Float.toString(resultf));
+                i_o2.setText(Integer.toString(0));
+                operator.setText("");
+                }
+                else {
                 CalculatorOperation();
                 i_o.setText(Integer.toString(result));
                 i_o2.setText(Integer.toString(0));
+                operator.setText("");
+                }
+                
                 
             } 
             
+            
+        }
+        
+        if(e.getSource() == divide){
+            
+            if (hasOperator == false){
+            hasOperator = true;
+            trigDivide = true;
+            input2 = input;
+            input = 0;
+            i_o.setText(Integer.toString(input));
+            
+            i_o2.setText(Integer.toString(input2));
+            operator.setText("/");
+            } 
+            
+        }
+        
+        if(e.getSource() == multiply){
+            
+            if (hasOperator == false){
+            hasOperator = true;
+            trigMultiply = true;
+            input2 = input;
+            input = 0;
+            i_o.setText(Integer.toString(input));
+            
+            i_o2.setText(Integer.toString(input2));
+            operator.setText("x");
+            } 
+            
+        }
+        
+        if(e.getSource() == minus){
+            
+            if (hasOperator == false){
+            hasOperator = true;
+            trigMinus = true;
+            input2 = input;
+            input = 0;
+            i_o.setText(Integer.toString(input));
+            
+            i_o2.setText(Integer.toString(input2));
+            operator.setText("-");
+            } 
             
         }
         
@@ -296,7 +352,7 @@ public class CalculatorGUI extends Calculator implements ActionListener{
             i_o.setText(Integer.toString(input));
             
             i_o2.setText(Integer.toString(input2));
-            
+            operator.setText("+");
             } 
             
         }
@@ -309,6 +365,7 @@ public class CalculatorGUI extends Calculator implements ActionListener{
             i_o.setText(Integer.toString(input));
             i_o2.setText(Integer.toString(input2));
             hasOperator = false;
+            operator.setText("");
         }
         
         
